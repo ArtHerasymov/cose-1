@@ -10,7 +10,7 @@
         <product_name_name>el_title titles</product_name_name>
     </site>
       <site>
-        <name>Allo</name>
+        <name>Foxtrot</name>
         <url>http://www.foxtrot.com.ua/ru/search?query=${query}</url>
         <keyword_container>div</keyword_container>
         <keyword_attribute>class</keyword_attribute>
