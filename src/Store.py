@@ -1,4 +1,6 @@
 class Store(object):
+    """Serves as a container for the data about a single web store"""
+
     def __init__(self, data):
         self.name = data[0]
         self.url = data[1]

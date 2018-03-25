@@ -5,28 +5,31 @@ from src import LogicalModule
 
 
 def get_converted_prices(prices):
+    """Returns a list of converted to integer prices"""
     converted_prices = []
     for x in range(0, len(prices)):
         pr = re.findall(r'\d+', prices[x].get_text())
         fnl = ""
         for p in pr:
             fnl += p
-            converted_prices.append(int(fnl))
+        converted_prices.append(int(fnl))
 
     return converted_prices
 
 
-def get_livenshtein_couples(names, inquiry):
+def get_liveshtein_couples(names, inquiry):
+    """Maps index of a product to its leveshtein length"""
     couples = []
     for x in range(0, len(names)):
-        currentLength = LogicalModule.trim(inquiry, names[x].text)
-        if currentLength != -1:
-            couples.append((x, currentLength))
+        current_length = LogicalModule.trim(inquiry, names[x].text)
+        if current_length == 0:
+            couples.append((x, current_length))
 
     return couples
 
 
-def filter_price_list(converted_prices, recommended_length , couples):
+def filter_price_list(converted_prices, recommended_length, couples):
+    """Makes sure that products with too big of a leveshtein length won't pass further down the decisions tree"""
     filtered_rice_list = []
     for i in range(1, len(couples)):
         if couples[i][1] == recommended_length:
@@ -35,6 +38,7 @@ def filter_price_list(converted_prices, recommended_length , couples):
 
 
 def get_price_range(store, inquiry):
+    """Generates the range of prices for the given store"""
     # Request html from url and getting dom out of it
     page = requests.get(store.url)
     soup = BeautifulSoup(page.content, 'html.parser')
@@ -46,8 +50,8 @@ def get_price_range(store, inquiry):
     # Converting dom data to integer prices
     converted_prices = get_converted_prices(prices)
     # Getting an object with minimal Levenshtein length
-    couples = get_livenshtein_couples(names, inquiry)
+    couples = get_liveshtein_couples(names, inquiry)
     recommended_length = min(couples, key=lambda t: t[1])[1]
     # Filter price list to leave only those items that possess recommended LL
     filtered_price_list = filter_price_list(converted_prices, recommended_length, couples)
-    return {"min":min(filtered_price_list), "max" : max(filtered_price_list)}
+    return {"min": min(filtered_price_list), "max": max(filtered_price_list)}

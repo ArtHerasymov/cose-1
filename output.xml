@@ -3,25 +3,25 @@
     <site>
         <store>Citrus</store>
         <product>Iphone 7</product>
-        <lower>18</lower>
-        <upper>23499</upper>
+        <lower>299</lower>
+        <upper>26999</upper>
     </site>
     <site>
         <store>Eldorado</store>
         <product>Iphone 7</product>
-        <lower>395</lower>
+        <lower>179</lower>
         <upper>23499</upper>
     </site>
     <site>
         <store>Foxtrot</store>
         <product>Iphone 7</product>
-        <lower>18</lower>
-        <upper>39993599</upper>
+        <lower>18999</lower>
+        <upper>35999</upper>
     </site>
     <site>
         <store>Moyo</store>
         <product>Iphone 7</product>
-        <lower>18</lower>
+        <lower>18999</lower>
         <upper>26999</upper>
     </site>
 </sites>

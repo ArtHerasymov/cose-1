@@ -1,11 +1,10 @@
+def get_leveshtein(s1, s2):
+    """Returns levenshtein's length, i.e. the number of characters to modify to get a pattern string"""
+    if s1 is None or s2 is None:
+        return -1
 
-
-# Takes pattern string and candidate string
-# Returns levenshtein's length, i.e.
-# the number of characters to modify to get a pattern string
-def get_levenshtein(s1, s2):
     if len(s1) < len(s2):
-        return get_levenshtein(s2, s1)
+        return get_leveshtein(s2, s1)
 
     # len(s1) >= len(s2)
     if len(s2) == 0:
@@ -25,9 +24,12 @@ def get_levenshtein(s1, s2):
     return previous_row[-1]
 
 
-# Trims input string to eliminate excessive words from the inquiry
-# And successively invokes get_livenshtein() method
 def trim(inquiry, candidate):
+    """Trims input string to eliminate excessive words from
+    the inquiry, and successively invokes get_livenshtein() method"""
+    if inquiry is None or candidate is None:
+        return -1
+
     inquiry_words = inquiry.lower().split()
     candidate_words = candidate.lower().split()
     indexes = []
@@ -39,4 +41,4 @@ def trim(inquiry, candidate):
 
     if len(indexes) == 0:
         return -1
-    return get_levenshtein("".join(candidate_words[min(indexes):max(indexes)+1]), "".join(inquiry_words))
+    return get_leveshtein("".join(candidate_words[min(indexes):max(indexes) + 1]), "".join(inquiry_words))

@@ -1,19 +1,22 @@
-from src import XMLHandler, WebScraper, LogicalModule
+import src
 
 request = 'Iphone 7'
-filename = '../sites.xml'
+input_file = '../sites.xml'
+output_file = '../output.xml'
 
 
 def main():
-    stores = XMLHandler.get_sites(filename, request)
+    print("AI processig ...")
+    stores = src.XMLHandler.get_sites(input_file, request)
     results = []
 
     for store in stores:
-        range = WebScraper.get_price_range(store, request)
-        store.set_range(range["min"], range["max"])
+        price_range = src.WebScraper.get_price_range(store, request)
+        store.set_range(price_range["min"], price_range["max"])
         results.append(store)
 
-    XMLHandler.save_output("../output.xml", results)
+    src.XMLHandler.save_output(output_file, results)
+    print("Data is saved to", output_file)
 
 
 main()
