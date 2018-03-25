@@ -15,7 +15,7 @@ pytest
 ```
 run tests with coverage
 ```bash
-pytest --cov=. tests/
+pytest --cov=. test/
 ```
 ### Code coverage
 88%
