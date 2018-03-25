@@ -8,11 +8,14 @@ These days it's getting crucial for the wayfaring Internet users to orient thems
 ### Prerequisites
  You will need Telegram client to use our bot or any OS with python3 to run console application.
 ## Getting Started
-### Installing
 ## Running the tests
 run tests without code coverage
 ```bash
 pytest
+```
+run tests with coverage
+```bash
+pytest --cov=. tests/
 ```
 ### Code coverage
 88%
