@@ -7,14 +7,23 @@ def get_sites(filename, query):
     root = tree.getroot()
     urls = []
     names = []
-    keywords = []
+    keyword_containers = []
+    keyword_attributes = []
+    keyword_names = []
+
+    productnames = []
 
     for child in root:
-        url = child[1].text.replace("{query}", query)
         name = child[0].text
-        keyword = child[2].text
+        url = child[1].text.replace("{query}", query)
+        keyword_container = child[2].text
+        keyword_attribute = child[3].text
+        keyword_name = child[4].text
         urls.append(url)
         names.append(name)
-        keywords.append(keyword)
-    data = (names, urls, keywords)
+        keyword_containers.append(keyword_container)
+        keyword_attributes.append(keyword_attribute)
+        keyword_names.append(keyword_name)
+
+    data = (names, urls, keyword_containers,keyword_attributes , keyword_names)
     return data

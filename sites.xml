@@ -1,8 +1,30 @@
 <sites>
+    <!--<site>-->
+        <!--<name>BHP</name>-->
+        <!--<url>https://www.bhphotovideo.com/c/search?Ntt=${query}&#038;N=0&#038;InitialSearch=yes&#038;sts=ps</url>-->
+        <!--<keyword>span[data-selenium=price]</keyword>-->
+        <!--<product></product>-->
+    <!--</site>-->
+    <!--<site>-->
+        <!--<name>Rozetka</name>-->
+        <!--<url>https://rozetka.com.ua/search/?text=${query}&#038;producer=36&#038;p=1</url>-->
+        <!--<keyword-container>div</keyword-container>-->
+        <!--<keyword-attribute>class</keyword-attribute>-->
+        <!--<keyword-name>g-price</keyword-name>-->
+    <!--</site>-->
     <site>
-        <name>BHP</name>
-        <url>https://www.bhphotovideo.com/c/search?Ntt=${query}&#038;N=0&#038;InitialSearch=yes&#038;sts=ps</url>
-        <keyword>span[data-selenium=price]</keyword>
+        <name>Citrus</name>
+        <url>https://www.citrus.ua/search/?q=${query}</url>
+        <keyword_container>span</keyword_container>
+        <keyword_attribute>class</keyword_attribute>
+        <keyword_name>product_price</keyword_name>
+    </site>
+      <site>
+        <name>Allo</name>
+        <url>http://www.foxtrot.com.ua/ru/search?query=Iphone+7</url>
+        <keyword_container>div</keyword_container>
+        <keyword_attribute>class</keyword_attribute>
+        <keyword_name>price</keyword_name>
     </site>
     <!--<site>-->
         <!--<name>Overstock</name>-->

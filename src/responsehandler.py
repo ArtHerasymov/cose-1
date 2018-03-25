@@ -1,7 +1,11 @@
-from htmldom import htmldom
+import requests
+from bs4 import BeautifulSoup
 
-# Takes query url and keyword for searching dom element containing price tag
-# Returns the value of a price tag
-def get_prices(query, keyword):
-    return htmldom.HtmlDom(query).createDom().find(keyword)[0].text()
 
+def get_page(query, keyword_type, keyword_attribute, keyword_name):
+    print(query)
+    page = requests.get(query)
+    soup = BeautifulSoup(page.content, 'html.parser')
+    prices = soup.find_all(keyword_type, {keyword_attribute:keyword_name})
+    for price in prices:
+        print(price.get_text())
