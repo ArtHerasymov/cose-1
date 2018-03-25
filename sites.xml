@@ -1,44 +1,23 @@
 <sites>
-    <!--<site>-->
-        <!--<name>BHP</name>-->
-        <!--<url>https://www.bhphotovideo.com/c/search?Ntt=${query}&#038;N=0&#038;InitialSearch=yes&#038;sts=ps</url>-->
-        <!--<keyword>span[data-selenium=price]</keyword>-->
-        <!--<product></product>-->
-    <!--</site>-->
-    <!--<site>-->
-        <!--<name>Rozetka</name>-->
-        <!--<url>https://rozetka.com.ua/search/?text=${query}&#038;producer=36&#038;p=1</url>-->
-        <!--<keyword-container>div</keyword-container>-->
-        <!--<keyword-attribute>class</keyword-attribute>-->
-        <!--<keyword-name>g-price</keyword-name>-->
-    <!--</site>-->
     <site>
         <name>Citrus</name>
         <url>https://www.citrus.ua/search/?q=${query}</url>
         <keyword_container>span</keyword_container>
         <keyword_attribute>class</keyword_attribute>
         <keyword_name>product_price</keyword_name>
+        <product_name_container>div</product_name_container>
+        <product_name_attribute>class</product_name_attribute>
+        <product_name_name>el_title titles</product_name_name>
     </site>
       <site>
         <name>Allo</name>
-        <url>http://www.foxtrot.com.ua/ru/search?query=Iphone+7</url>
+        <url>http://www.foxtrot.com.ua/ru/search?query=${query}</url>
         <keyword_container>div</keyword_container>
         <keyword_attribute>class</keyword_attribute>
         <keyword_name>price</keyword_name>
+        <product_name_container>a</product_name_container>
+        <product_name_attribute>class</product_name_attribute>
+        <product_name_name>name detail-link</product_name_name>
     </site>
-    <!--<site>-->
-        <!--<name>Overstock</name>-->
-        <!--<url>https://www.overstock.com/search?keywords=${query}&#038;SearchType=Header</url>-->
-        <!--<keyword>span.price-dollar</keyword>-->
-    <!--</site>-->
-    <!--<site>-->
-        <!--<name>Amazon</name>-->
-        <!--<url>https://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Delectronics&#038;field-keywords=${query}</url>-->
-        <!--<keyword>span.sx-price-whole</keyword>-->
-    <!--</site>-->
-    <!--<site>-->
-        <!--<name>Walmart</name>-->
-        <!--<url>https://www.walmart.com/search/?query=${query}&#038;cat_id=0</url>-->
-        <!--<keyword>span.Price-characteristic</keyword>-->
-    <!--</site>-->
+
 </sites>
