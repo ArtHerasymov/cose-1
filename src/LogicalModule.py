@@ -1,5 +1,6 @@
 def get_leveshtein(s1, s2):
-    """Returns levenshtein's length, i.e. the number of characters to modify to get a pattern string"""
+    """Returns levenshtein's length, i.e. the number of
+    characters to modify to get a pattern string"""
     if s1 is None or s2 is None:
         return -1
 
@@ -14,9 +15,8 @@ def get_leveshtein(s1, s2):
     for i, c1 in enumerate(s1):
         current_row = [i + 1]
         for j, c2 in enumerate(s2):
-            insertions = previous_row[
-                             j + 1] + 1  # j+1 instead of j since previous_row and current_row are one character longer
-            deletions = current_row[j] + 1  # than s2
+            insertions = previous_row[j + 1] + 1
+            deletions = current_row[j] + 1
             substitutions = previous_row[j] + (c1 != c2)
             current_row.append(min(insertions, deletions, substitutions))
         previous_row = current_row
@@ -41,4 +41,26 @@ def trim(inquiry, candidate):
 
     if len(indexes) == 0:
         return -1
-    return get_leveshtein("".join(candidate_words[min(indexes):max(indexes) + 1]), "".join(inquiry_words))
+    return get_leveshtein(
+        "".join(candidate_words[min(indexes):max(indexes) + 1]),
+        "".join(inquiry_words))
+
+
+def determine_range(prices):
+    """Approximates the range
+    to eliminate accessories"""
+    max_price = prices[0]
+
+    for x in range(1, len(prices)):
+        if prices[x] > max_price:
+            max_price = prices[x]
+
+    min_price = 100000000
+    print('max : ', max_price)
+    for x in range(0, len(prices)):
+        print(prices[x] / max_price)
+        if prices[x] < min_price and prices[x] / max_price > 0.5:
+            print('setting min ', prices[x])
+            min_price = prices[x]
+
+    return {"min": min_price, "max": max_price}

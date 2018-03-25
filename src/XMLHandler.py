@@ -44,6 +44,7 @@ def save_output(filename, results):
         ET.SubElement(site, "lower").text = str(result.lower)
         ET.SubElement(site, "upper").text = str(result.upper)
 
-    xmlstring = minidom.parseString(ET.tostring(root)).toprettyxml(indent="    ")
+    xmlstring = minidom.parseString(ET.tostring(root))\
+        .toprettyxml(indent="    ")
     with open(filename, "w") as f:
         f.write(xmlstring)

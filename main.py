@@ -6,7 +6,7 @@ output_file = '../output.xml'
 
 
 def main():
-    print("AI processig ...")
+    print("AI processing ...")
     stores = src.XMLHandler.get_sites(input_file, request)
     results = []
 

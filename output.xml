@@ -3,13 +3,13 @@
     <site>
         <store>Citrus</store>
         <product>Iphone 7</product>
-        <lower>299</lower>
+        <lower>18999</lower>
         <upper>26999</upper>
     </site>
     <site>
         <store>Eldorado</store>
         <product>Iphone 7</product>
-        <lower>179</lower>
+        <lower>18999</lower>
         <upper>23499</upper>
     </site>
     <site>

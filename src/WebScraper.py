@@ -29,7 +29,8 @@ def get_liveshtein_couples(names, inquiry):
 
 
 def filter_price_list(converted_prices, recommended_length, couples):
-    """Makes sure that products with too big of a leveshtein length won't pass further down the decisions tree"""
+    """Makes sure that products with too big of a leveshtein
+    length won't pass further down the decisions tree"""
     filtered_rice_list = []
     for i in range(1, len(couples)):
         if couples[i][1] == recommended_length:
@@ -43,15 +44,23 @@ def get_price_range(store, inquiry):
     page = requests.get(store.url)
     soup = BeautifulSoup(page.content, 'html.parser')
 
-    # Looking for prices and names inside dom object(soup)
-    prices = soup.find_all(store.keyword_container, {store.keyword_attribute: store.keyword_name})
-    names = soup.find_all(store.product_container, {store.product_attribute: store.product_name})
+    # Looking for prices and names
+    # inside dom object(soup)
+    prices = soup.find_all(store.keyword_container,
+                           {store.keyword_attribute: store.keyword_name})
+    names = soup.find_all(store.product_container,
+                          {store.product_attribute: store.product_name})
 
     # Converting dom data to integer prices
     converted_prices = get_converted_prices(prices)
     # Getting an object with minimal Levenshtein length
     couples = get_liveshtein_couples(names, inquiry)
-    recommended_length = min(couples, key=lambda t: t[1])[1]
-    # Filter price list to leave only those items that possess recommended LL
-    filtered_price_list = filter_price_list(converted_prices, recommended_length, couples)
-    return {"min": min(filtered_price_list), "max": max(filtered_price_list)}
+    recommended_length = min(couples,
+                             key=lambda t: t[1])[1]
+    # Filter price list to leave only those
+    # items that possess recommended LL
+    filtered_price_list = filter_price_list(
+        converted_prices, recommended_length, couples
+    )
+    range = LogicalModule.determine_range(filtered_price_list)
+    return {"min": range["min"], "max": range["max"]}
