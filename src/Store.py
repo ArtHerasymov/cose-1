@@ -6,7 +6,16 @@ class Store(object):
         self.keyword_container = data[2]
         self.keyword_attribute = data[3]
         self.keyword_name = data[4]
-        #Names
+        # Names
         self.product_container = data[5]
         self.product_attribute = data[6]
         self.product_name = data[7]
+        # Range
+        self.lower = None
+        self.upper = None
+        # Product
+        self.product = data[8]
+
+    def set_range(self, lower, upper):
+        self.lower = lower
+        self.upper = upper

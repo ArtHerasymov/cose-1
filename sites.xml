@@ -10,6 +10,16 @@
         <product_name_name>el_title titles</product_name_name>
     </site>
       <site>
+          <name>Eldorado</name>
+          <url>https://eldorado.ua/search?q=${query}</url>
+          <keyword_container>div</keyword_container>
+          <keyword_attribute>class</keyword_attribute>
+          <keyword_name>current-price h1</keyword_name>
+          <product_name_container>div</product_name_container>
+          <product_name_attribute>class</product_name_attribute>
+          <product_name_name>title lp</product_name_name>
+      </site>
+      <site>
         <name>Foxtrot</name>
         <url>http://www.foxtrot.com.ua/ru/search?query=${query}</url>
         <keyword_container>div</keyword_container>
@@ -19,5 +29,14 @@
         <product_name_attribute>class</product_name_attribute>
         <product_name_name>name detail-link</product_name_name>
     </site>
-
+    <site>
+          <name>Moyo</name>
+          <url>https://www.moyo.ua/search/new?q=${query}</url>
+          <keyword_container>div</keyword_container>
+          <keyword_attribute>class</keyword_attribute>
+          <keyword_name>goodsprice-amount</keyword_name>
+          <product_name_container>a</product_name_container>
+          <product_name_attribute>class</product_name_attribute>
+          <product_name_name>goods_title ddd</product_name_name>
+      </site>
 </sites>

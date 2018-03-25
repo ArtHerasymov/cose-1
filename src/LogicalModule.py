@@ -1,8 +1,9 @@
+
+
 # Takes pattern string and candidate string
 # Returns levenshtein's length, i.e.
 # the number of characters to modify to get a pattern string
 def get_levenshtein(s1, s2):
-    print(s1 , s2)
     if len(s1) < len(s2):
         return get_levenshtein(s2, s1)
 
@@ -23,11 +24,12 @@ def get_levenshtein(s1, s2):
 
     return previous_row[-1]
 
+
 # Trims input string to eliminate excessive words from the inquiry
 # And successively invokes get_livenshtein() method
 def trim(inquiry, candidate):
-    inquiry_words = inquiry.split()
-    candidate_words = candidate.split()
+    inquiry_words = inquiry.lower().split()
+    candidate_words = candidate.lower().split()
     indexes = []
 
     for i in range(0, len(inquiry_words)):

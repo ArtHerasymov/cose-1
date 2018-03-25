@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<sites>
+    <site>
+        <store>Citrus</store>
+        <product>Iphone 7</product>
+        <lower>18</lower>
+        <upper>23499</upper>
+    </site>
+    <site>
+        <store>Eldorado</store>
+        <product>Iphone 7</product>
+        <lower>395</lower>
+        <upper>23499</upper>
+    </site>
+    <site>
+        <store>Foxtrot</store>
+        <product>Iphone 7</product>
+        <lower>18</lower>
+        <upper>39993599</upper>
+    </site>
+    <site>
+        <store>Moyo</store>
+        <product>Iphone 7</product>
+        <lower>18</lower>
+        <upper>26999</upper>
+    </site>
+</sites>
