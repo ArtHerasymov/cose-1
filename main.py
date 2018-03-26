@@ -1,4 +1,5 @@
 import src
+import sys
 
 request = 'Iphone 7'
 input_file = '../sites.xml'
@@ -8,6 +9,9 @@ output_file = '../output.xml'
 def main():
     print("AI processing ...")
     stores = src.XMLHandler.get_sites(input_file, request)
+    if stores is None:
+        print("No stores in the file")
+        sys.exit()
     results = []
 
     for store in stores:

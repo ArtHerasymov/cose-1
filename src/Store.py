@@ -2,6 +2,9 @@ class Store(object):
     """Serves as a container for the data about a single web store"""
 
     def __init__(self, data):
+        if not data:
+            raise Exception("None argument")
+
         self.name = data[0]
         self.url = data[1]
         # Prices
@@ -21,3 +24,4 @@ class Store(object):
     def set_range(self, lower, upper):
         self.lower = lower
         self.upper = upper
+
