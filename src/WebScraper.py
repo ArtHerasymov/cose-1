@@ -43,6 +43,8 @@ def get_price_range(store, inquiry):
 
     if store is None:
         raise Exception("Store is none")
+    if inquiry is None or inquiry is "":
+        raise Exception("Inquiry cannot be empty")
     # Request html from url and getting dom out of it
     page = requests.get(store.url)
     soup = BeautifulSoup(page.content, 'html.parser')

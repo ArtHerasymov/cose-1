@@ -56,11 +56,8 @@ def determine_range(prices):
             max_price = prices[x]
 
     min_price = 100000000
-    print('max : ', max_price)
     for x in range(0, len(prices)):
-        print(prices[x] / max_price)
         if prices[x] < min_price and prices[x] / max_price > 0.5:
-            print('setting min ', prices[x])
             min_price = prices[x]
 
     return {"min": min_price, "max": max_price}
