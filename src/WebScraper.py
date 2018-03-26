@@ -40,6 +40,9 @@ def filter_price_list(converted_prices, recommended_length, couples):
 
 def get_price_range(store, inquiry):
     """Generates the range of prices for the given store"""
+
+    if store is None:
+        raise Exception("Store is none")
     # Request html from url and getting dom out of it
     page = requests.get(store.url)
     soup = BeautifulSoup(page.content, 'html.parser')
