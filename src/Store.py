@@ -24,4 +24,3 @@ class Store(object):
     def set_range(self, lower, upper):
         self.lower = lower
         self.upper = upper
-
